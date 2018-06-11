@@ -30,8 +30,8 @@ public class BDHelper extends SQLiteOpenHelper {
 
 
     private static final String TABLE_CREATE_PROFESSOR = "create table professor " +
-            "(funcId integer primary key autoincrement, cargoFk integer, funcNome text not null, salario " +
-            "text not null, FOREIGN KEY(cargoFk) REFERENCES cargo(cargoId));";
+            "(id_professor integer primary key autoincrement, nome_professor text not null, cpf_professor " +
+            "text not null, idade_professor integer, email_professor text, senha_professor text);";
 
 
     public BDHelper(Context context) {
@@ -63,7 +63,6 @@ public class BDHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUNA_NOME_PROFESSOR,professor.getNome());
         values.put(COLUNA_CPF_PROFESSOR, professor.getCpf());
-        values.put(COLUNA_TIPO_PROFESSOR,professor.getTipoProfessor());
         values.put(COLUNA_IDADE_PROFESSOR,professor.getTipoProfessor());
         values.put(COLUNA_EMAIL_PROFESSOR, professor.getEmail());
         values.put(COLUNA_SENHA_PROFESSOR, professor.getSenha());
@@ -80,62 +79,68 @@ public class BDHelper extends SQLiteOpenHelper {
 
         String[] coluns={COLUNA_ID_PROFESSOR,
                 COLUNA_NOME_PROFESSOR,
-                COLUNA_TIPO_PROFESSOR,
+                COLUNA_IDADE_PROFESSOR,
                 COLUNA_CPF_PROFESSOR,
                 COLUNA_EMAIL_PROFESSOR,
                 COLUNA_SENHA_PROFESSOR
         };
         Cursor cursor = getWritableDatabase().query(TABLE_PROFESSOR,
                 coluns,null,null,null,
-                null,"upper(funcNome)",null);
+                null,"upper(nome_professor)",null);
         List<Professor> listaProfessores = new ArrayList<Professor>();
         while(cursor.moveToNext()){
             Professor p = new Professor();
             p.setIdProfessor(cursor.getInt(0));
             p.setNome(cursor.getString(1));
             p.setCpf(cursor.getString(2));
-            p.getEmail(cursor.getString(3))
+            p.setIdade(cursor.getInt(3));
+            p.setEmail(cursor.getString(4));
+            p.setSenha(cursor.getString(5));
 
-
-            listaFuncionario.add(f);
+            listaProfessores.add(p);
         }
-        return listaFuncionario;
+        return listaProfessores;
     }
 
-    public long excluirFuncionario(Funcionario f) {
+    public long excluirProfessor(Professor p) {
         long retornoBD;
         bd = this.getWritableDatabase();
-        String[] args = {String.valueOf(f.getIdFuncionario())};
-        retornoBD=bd.delete(TABLE_FUNCIONARIO, COLUNA_ID_FUNCIONARIO+"=?",args);
+        String[] args = {String.valueOf(p.getIdProfessor())};
+        retornoBD=bd.delete(TABLE_PROFESSOR, COLUNA_ID_PROFESSOR+"=?",args);
         return retornoBD;
     }
 
-    public long alterarPessoa(Funcionario f){
+    public long alterarProfessor(Professor professor){
         long retornoBD;
         bd = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUNA_NOME_FUNCIONARIO,f.getNome());
-        values.put(COLUNA_SALARIO,f.getSalario());
 
-        String[] args = {String.valueOf(f.getIdFuncionario())};
-        retornoBD=bd.update(TABLE_FUNCIONARIO,values,"funcId=?",args);
+        values.put(COLUNA_NOME_PROFESSOR,professor.getNome());
+        values.put(COLUNA_CPF_PROFESSOR, professor.getCpf());
+        values.put(COLUNA_IDADE_PROFESSOR,professor.getTipoProfessor());
+        values.put(COLUNA_EMAIL_PROFESSOR, professor.getEmail());
+        values.put(COLUNA_SENHA_PROFESSOR, professor.getSenha());
+
+
+        String[] args = {String.valueOf(professor.getIdProfessor())};
+        retornoBD=bd.update(TABLE_PROFESSOR,values,"id_professor=?",args);
         bd.close();
         return retornoBD;
     }
 
-    public List<Cargo> buscarTodosCargos() {
-        String[] coluns={COLUNA_ID_CARGO, COLUNA_NOME_CARGO};
-        Cursor cursor = getWritableDatabase().query(TABLE_CARGO,
-                coluns,null,null,null,
-                null,"upper(cargoNome)",null);
-        List<Cargo> listaCargos = new ArrayList<Cargo>();
-        while(cursor.moveToNext()){
-            Cargo c = new Cargo();
-            c.setIdCargo(cursor.getInt(0));
-            c.setNomeCargo(cursor.getString(1));
 
-            listaCargos.add(c);
-        }
-        return listaCargos;
+    public Professor buscarProfessorPorLogin(Professor professor) {
+        String[] coluns={COLUNA_ID_PROFESSOR,
+                COLUNA_NOME_PROFESSOR,
+                COLUNA_IDADE_PROFESSOR,
+                COLUNA_CPF_PROFESSOR,
+                COLUNA_EMAIL_PROFESSOR,
+                COLUNA_SENHA_PROFESSOR
+        };
+        String[] args = {String.valueOf(professor.getEmail())};
+        Cursor cursor = getWritableDatabase().query(TABLE_PROFESSOR,
+                coluns,null,args,null,
+                null,"upper(nome_professor)",null);
+
     }
 }
