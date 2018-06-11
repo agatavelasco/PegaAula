@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import br.ufms.facom.pegaaulaapp.bdhelper.BDHelper;
+import br.ufms.facom.pegaaulaapp.model.Professor;
 
 public class CadastroActivity extends AppCompatActivity {
 
@@ -38,6 +40,24 @@ public class CadastroActivity extends AppCompatActivity {
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(edtSenha1.getText().toString().equals(edtSenha2.getText().toString())){
+
+                    Professor professor = new Professor();
+                    professor.setNome(edtNome.getText().toString());
+                    professor.setCpf(edtCpf.getText().toString());
+                    professor.setIdade(edtIdade.getText().toString());
+                    professor.setEmail(edtEmail.getText().toString());
+                    professor.setSenha(edtSenha2.getText().toString());
+
+
+                    bd.salvarProfessor(professor);
+                    Toast.makeText(CadastroActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(CadastroActivity.this, "As senhas não conferem!", Toast.LENGTH_SHORT).show();
+                }
+
+
 
             }
         });
