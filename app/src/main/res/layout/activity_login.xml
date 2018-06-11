@@ -39,7 +39,7 @@
                     android:layout_marginTop="15dp"
                     android:padding="10dp"
                     android:id="@+id/edt_login"
-                    android:hint="Usuario"
+                    android:hint="Email"
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
