@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import br.ufms.facom.pegaaulaapp.bdhelper.BDHelper;
+import br.ufms.facom.pegaaulaapp.model.Professor;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -22,7 +24,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         bd = new BDHelper(LoginActivity.this);
+
         btnEntrar = findViewById(R.id.btn_entrar);
         tvRegistrar = findViewById(R.id.lv_entrar);
         etEmail = findViewById(R.id.edt_login);
@@ -32,10 +36,23 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                bd.buscarProfessorPorLogin();
+                Professor p = bd.buscarProfessorPorLogin(etEmail.getText().toString());
 
-                Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
-                startActivity(intent);
+                if(p !=null){
+                    if(p.getSenha().equals(etSenha.getText().toString())){
+                        Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(LoginActivity.this, "Usuário ou senha inválida", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(LoginActivity.this, "Ocorreu um erro ao buscar", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+
+
             }
         });
 

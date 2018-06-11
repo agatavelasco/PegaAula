@@ -3,6 +3,7 @@ package br.ufms.facom.pegaaulaapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+
 public class CadastroActivity extends AppCompatActivity {
 
     @Override
