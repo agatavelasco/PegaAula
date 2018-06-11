@@ -64,7 +64,7 @@
                 <EditText
                     android:padding="10dp"
                     android:inputType="textPassword"
-                    android:id="@+id/edt_password1"
+                    android:id="@+id/edt_senha1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Senha" />
@@ -73,7 +73,7 @@
                 <EditText
                     android:padding="10dp"
                     android:inputType="textPassword"
-                    android:id="@+id/edt_password2"
+                    android:id="@+id/edt_senha2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Confirmar senha" />
@@ -81,7 +81,7 @@
                 <Button
                     android:layout_marginTop="20dp"
                     android:paddingTop="15dp"
-                    android:id="@+id/btn_entrar"
+                    android:id="@+id/btn_cadastrar"
                     android:background="@drawable/gradient"
                     android:gravity="center_horizontal"
                     android:layout_width="match_parent"
