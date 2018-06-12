@@ -27,7 +27,7 @@
             app:cardBackgroundColor="@color/cardview_light_background"
             android:foregroundGravity="center"
             android:layout_width="match_parent"
-            android:layout_height="150dp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:padding="10dp"
