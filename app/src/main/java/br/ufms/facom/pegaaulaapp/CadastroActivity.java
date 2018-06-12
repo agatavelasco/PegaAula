@@ -10,6 +10,7 @@ import android.widget.Toast;
 import br.ufms.facom.pegaaulaapp.bdhelper.BDHelper;
 import br.ufms.facom.pegaaulaapp.model.Professor;
 
+
 public class CadastroActivity extends AppCompatActivity {
 
     BDHelper bd;
@@ -50,9 +51,9 @@ public class CadastroActivity extends AppCompatActivity {
                     professor.setEmail(edtEmail.getText().toString());
                     professor.setSenha(edtSenha2.getText().toString());
 
-
                     bd.salvarProfessor(professor);
                     Toast.makeText(CadastroActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                    finish();
                 }else {
                     Toast.makeText(CadastroActivity.this, "As senhas não conferem!", Toast.LENGTH_SHORT).show();
                 }

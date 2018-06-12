@@ -30,8 +30,8 @@ public class BDHelper extends SQLiteOpenHelper {
 
 
     private static final String TABLE_CREATE_PROFESSOR = "create table professor " +
-            "(id_professor integer primary key autoincrement, nome_professor text not null, cpf_professor " +
-            "text not null, idade_professor integer, email_professor text, senha_professor text);";
+            "(id_professor integer primary key autoincrement, nome_professor text, cpf_professor " +
+            "text, idade_professor integer, email_professor text, senha_professor text);";
 
 
     public BDHelper(Context context) {
@@ -129,7 +129,7 @@ public class BDHelper extends SQLiteOpenHelper {
     }
 
 
-    public Professor buscarProfessorPorLogin(Professor professor) {
+    public Professor buscarProfessorPorLogin(String email) {
         String[] coluns={COLUNA_ID_PROFESSOR,
                 COLUNA_NOME_PROFESSOR,
                 COLUNA_IDADE_PROFESSOR,
@@ -137,10 +137,22 @@ public class BDHelper extends SQLiteOpenHelper {
                 COLUNA_EMAIL_PROFESSOR,
                 COLUNA_SENHA_PROFESSOR
         };
-        String[] args = {String.valueOf(professor.getEmail())};
+        List<Professor> listaProfessores = new ArrayList<Professor>();
+        String[] args = {String.valueOf(email)};
         Cursor cursor = getWritableDatabase().query(TABLE_PROFESSOR,
-                coluns,null,args,null,
+                coluns,COLUNA_EMAIL_PROFESSOR + "=?", args,null,
                 null,"upper(nome_professor)",null);
+        while(cursor.moveToNext()){
+            Professor p = new Professor();
+            p.setIdProfessor(cursor.getInt(0));
+            p.setNome(cursor.getString(1));
+            p.setCpf(cursor.getString(2));
+            p.setIdade(cursor.getInt(3));
+            p.setEmail(cursor.getString(4));
+            p.setSenha(cursor.getString(5));
+            listaProfessores.add(p);
+        }
 
+        return listaProfessores.get(0);
     }
 }
