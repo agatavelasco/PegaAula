@@ -1,12 +1,13 @@
 package br.ufms.facom.pegaaulaapp;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     RadioGroup group;
     RadioButton radioButton;

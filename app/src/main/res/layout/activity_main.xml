@@ -98,7 +98,7 @@
 
                 <Button
                     android:textColor="@color/colorWhite"
-                    android:background="@drawable/gradient"
+                    android:background=""
                     android:layout_marginTop="175dp"
                     android:text="Encontrar Substituto"
                     android:layout_width="match_parent"
