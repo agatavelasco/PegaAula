@@ -46,7 +46,7 @@ public class CadastroActivity extends AppCompatActivity {
                     Professor professor = new Professor();
                     professor.setNome(edtNome.getText().toString());
                     professor.setCpf(edtCpf.getText().toString());
-                    professor.setIdade(edtIdade.getText().toString());
+                    professor.setIdade(Integer.parseInt(edtIdade.getText().toString()));
                     professor.setEmail(edtEmail.getText().toString());
                     professor.setSenha(edtSenha2.getText().toString());
 
