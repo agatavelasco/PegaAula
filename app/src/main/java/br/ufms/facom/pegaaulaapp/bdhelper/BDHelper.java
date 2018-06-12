@@ -30,8 +30,8 @@ public class BDHelper extends SQLiteOpenHelper {
 
 
     private static final String TABLE_CREATE_PROFESSOR = "create table professor " +
-            "(id_professor integer primary key autoincrement, nome_professor text not null, cpf_professor " +
-            "text not null, idade_professor integer, email_professor text, senha_professor text);";
+            "(id_professor integer primary key autoincrement, nome_professor text, cpf_professor " +
+            "text, idade_professor integer, email_professor text, senha_professor text);";
 
 
     public BDHelper(Context context) {
@@ -140,7 +140,7 @@ public class BDHelper extends SQLiteOpenHelper {
         List<Professor> listaProfessores = new ArrayList<Professor>();
         String[] args = {String.valueOf(email)};
         Cursor cursor = getWritableDatabase().query(TABLE_PROFESSOR,
-                coluns,null,args,null,
+                coluns,COLUNA_EMAIL_PROFESSOR + "=?", args,null,
                 null,"upper(nome_professor)",null);
         while(cursor.moveToNext()){
             Professor p = new Professor();
