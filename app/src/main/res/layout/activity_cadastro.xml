@@ -83,7 +83,7 @@
                     android:layout_marginTop="20dp"
                     android:paddingTop="15dp"
                     android:id="@+id/btn_cadastrar"
-                    android:background="@color/colorGray"
+                    android:background="@color/colorButton"
                     android:gravity="center_horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
