@@ -11,8 +11,7 @@
     <style name="NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="colorAccent">@color/colorPrimary2</item>
-        <item name="colorPrimaryDark">#03DAC6</item>
+        <item name="colorPrimaryDark">#ff7043</item>
         <item name="colorPrimary">@color/colorAccent</item>
 
     </style>

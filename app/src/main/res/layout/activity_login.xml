@@ -56,7 +56,7 @@
                     android:layout_marginTop="20dp"
                     android:paddingTop="15dp"
                     android:id="@+id/btn_entrar"
-                    android:background="@drawable/gradient"
+                    android:background="@color/colorGray"
                     android:gravity="center_horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
