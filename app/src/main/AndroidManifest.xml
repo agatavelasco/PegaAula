@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/busca" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/NoActionBar">
@@ -19,7 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CadastroActivity"></activity>
+        <activity
+            android:name=".CadastroActivity"
+            android:label="@string/cadastro" />
+        <activity
+            android:name=".ListaProfessorActivity"
+            android:label="@string/listaProfessores"></activity>
+        <activity android:name=".ProfessorDetalheActivity"></activity>
     </application>
 
 </manifest>

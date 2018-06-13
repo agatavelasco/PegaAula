@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/gradient">
+    android:background="@color/colorPrimaryLight">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             app:cardBackgroundColor="@color/cardview_light_background"
             android:foregroundGravity="center"
             android:layout_width="match_parent"
-            android:layout_height="400dp">
+            android:layout_height="300dp">
 
             <LinearLayout
                 android:padding="10dp"
@@ -31,7 +31,8 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -43,47 +44,54 @@
 
                     <android.support.v7.widget.AppCompatSpinner
                         android:id="@+id/spinner_materias"
-                        android:layout_width="match_parent"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content">
 
                     </android.support.v7.widget.AppCompatSpinner>
 
                 </LinearLayout>
 
-                <view
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"/>
 
                 <TextView
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="5dp"
                     android:text="Período"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <LinearLayout
-                    android:layout_marginLeft="20dp"
-                    android:orientation="horizontal"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
-                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
                         android:id="@+id/rd_group"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <RadioButton
+
+                            android:id="@+id/rb_matutino"
                             android:text="Matutino"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <RadioButton
+
+                            android:id="@+id/rb_vespertino"
                             android:text="Vespertino"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <RadioButton
+
+                            android:id="@+id/rb_noturno"
                             android:text="Noturno"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
@@ -92,15 +100,14 @@
 
                 </LinearLayout>
 
-                <view
+                <View
                     android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"/>
 
                 <Button
-                    android:textColor="@color/colorWhite"
-                    android:background="@drawable/gradient"
-                    android:layout_marginTop="175dp"
+                    android:id="@+id/btn_buscar"
+                    android:background="@color/colorButton"
                     android:text="Encontrar Substituto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />

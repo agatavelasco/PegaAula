@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Pega Aula App</string>
+    <string name="app_name">Troca Aula</string>
+    <string name="cadastro">Cadastro</string>
+    <string name="login">Login</string>
+    <string name="busca">Busca</string>
+    <string name="listaProfessores">Lista de Professores</string>
+
+
 </resources>

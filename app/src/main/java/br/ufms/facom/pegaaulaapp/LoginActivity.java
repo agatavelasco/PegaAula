@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
 
 import br.ufms.facom.pegaaulaapp.bdhelper.BDHelper;
 import br.ufms.facom.pegaaulaapp.model.Professor;

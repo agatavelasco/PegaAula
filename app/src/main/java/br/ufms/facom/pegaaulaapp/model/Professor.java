@@ -1,6 +1,5 @@
 package br.ufms.facom.pegaaulaapp.model;
 
-import java.util.Date;
 
 public class Professor {
 
