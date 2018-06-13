@@ -4,8 +4,12 @@
     <color name="colorPrimaryDark">#cc5835</color>
     <color name="colorAccent">#e57373</color>
     <color name="colorWhite">#FFFFFF</color>
+<<<<<<< HEAD
     <color name="colorButton">#81e2d2</color>
     <color name="colorPrimaryLight">#ffdcce</color>
 
+=======
+    <color name="colorButton">#80deea</color>
+>>>>>>> 56e1bb737ee23137ff7b5e69876168c4c7bb2a30
 
 </resources>

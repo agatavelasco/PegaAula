@@ -106,8 +106,11 @@
                     android:layout_height="1dp"/>
 
                 <Button
+
                     android:id="@+id/btn_buscar"
                     android:background="@color/colorButton"
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginTop="175dp"
                     android:text="Encontrar Substituto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
